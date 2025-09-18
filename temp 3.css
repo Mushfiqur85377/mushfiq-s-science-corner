@@ -1,0 +1,36 @@
+body {
+  font-family: Arial;
+  background: #f7f7f7;
+  padding: 20px;
+}
+h2 {
+  text-align: center;
+  color: #4CAF50;
+}
+input, select, button {
+  padding: 5px;
+  margin: 5px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background: #4CAF50;
+  color: white;
+}
+#loginSection, #adminSection, #studentSection {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
