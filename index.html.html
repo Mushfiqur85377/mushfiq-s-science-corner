@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushfiq's Science Corner - Payment System</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+body { font-family: Arial; background: #f7f7f7; padding: 20px; }
+h2 { text-align: center; color: #4CAF50; }
+input, select, button { padding: 5px; margin: 5px; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+table, th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+th { background: #4CAF50; color: white; }
+#loginSection, #adminSection, #studentSection { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;}
+</style>
+</head>
+<body>
+
+<h2>Mushfiq's Science Corner - Payment Management</h2>
+
+<!-- Login Section -->
+<div id="loginSection">
+  <h3>Login</h3>
+  <label>Username:</label> <input type="text" id="username"><br>
+  <label>Password:</label> <input type="password" id="password"><br>
+  <button onclick="login()">Login</button>
+  <p id="loginMsg" style="color:red;"></p>
+</div>
+
+<!-- Admin Panel -->
+<div id="adminSection" style="display:none;">
+  <h3>Admin Panel - Manage Payments</h3>
+  <form id="paymentForm">
+    Name: <input type="text" id="name" required>
+    ID: <input type="text" id="studentId" required>
+    Month: <input type="month" id="month" required>
+    Tuition: <input type="number" id="tuition" value="1500" required>
+    Lab: <input type="number" id="lab" value="300">
+    Exam: <input type="number" id="exam" value="500">
+    Workshop: <input type="number" id="workshop" value="0">
+    Method: <select id="method"><option>Cash</option><option>Bkash</option><option>Bank Transfer</option></select>
+    <button type="submit">Add Payment</button>
+  </form>
+  <button onclick="downloadExcel()">Download Excel</button>
+  <table id="paymentTable">
+    <thead>
+      <tr>
+        <th>Name</th><th>ID</th><th>Month</th><th>Tuition</th><th>Lab</th><th>Exam</th><th>Workshop</th><th>Total</th><th>Method</th><th>Receipt</th><th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- Student Panel -->
+<div id="studentSection" style="display:none;">
+  <h3>Student Panel - Your Payments</h3>
+  <label>Enter Your ID: </label><input type="text" id="stuId"><button onclick="filterStudent()">View</button>
+  <table id="studentTable">
+    <thead>
+      <tr><th>Month</th><th>Tuition</th><th>Lab</th><th>Exam</th><th>Workshop</th><th>Total</th><th>Method</th><th>Receipt</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+let payments = [];
+
+// Login system
+function login(){
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+  const msg = document.getElementById('loginMsg');
+  if(user === "admin" && pass === "admin123"){
+    document.getElementById('loginSection').style.display="none";
+    document.getElementById('adminSection').style.display="block";
+  } else if(user === "student" && pass === "student123"){
+    document.getElementById('loginSection').style.display="none";
+    document.getElementById('studentSection').style.display="block";
+  } else {
+    msg.innerText="Invalid credentials!";
+  }
+}
+
+// Admin add payment
+const form
+
